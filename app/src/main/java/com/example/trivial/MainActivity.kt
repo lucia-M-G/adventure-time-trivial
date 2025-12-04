@@ -1,7 +1,5 @@
 package com.example.trivial
 
-import MenuView
-import ResultView
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,6 +11,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.trivial.ui.theme.TrivialTheme
 import com.example.trivial.view.GameView
 import com.example.trivial.view.LaunchView
+import com.example.trivial.view.MenuView
+import com.example.trivial.view.ResultView
 import com.example.trivial.view.Routes
 import com.example.trivial.viewmodel.TrivialViewModel
 
