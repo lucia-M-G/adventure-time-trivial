@@ -1,6 +1,6 @@
 package com.example.trivial.model
 
-data class MenuModel(
+data class Menu(
     var dificultad: Int,
     var iniciarJuego: Boolean
 )
