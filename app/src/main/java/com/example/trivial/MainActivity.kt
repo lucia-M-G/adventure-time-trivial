@@ -5,6 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -25,14 +29,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             TrivialTheme {
-                NavHost(
-                    navController = navController,
-                    startDestination = Routes.Launch.route
-                ) {
-                    composable(Routes.Launch.route) { LaunchView(trivialViewModel, navController) }
-                    composable(Routes.Menu.route) { MenuView(trivialViewModel, navController) }
-                    composable(Routes.Game.route) { GameView(trivialViewModel, navController) }
-                    composable(Routes.Result.route) { ResultView(trivialViewModel, navController) }
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    NavHost(
+                        navController = navController,
+                        startDestination = Routes.Launch.route
+                    ) {
+                        composable(Routes.Launch.route) { LaunchView(modifier = Modifier.padding(innerPadding), trivialViewModel, navController) }
+                        composable(Routes.Menu.route) { MenuView(modifier = Modifier.padding(innerPadding), trivialViewModel, navController) }
+                        composable(Routes.Game.route) { GameView(modifier = Modifier.padding(innerPadding), trivialViewModel, navController) }
+                        composable(Routes.Result.route) { ResultView(modifier = Modifier.padding(innerPadding), trivialViewModel, navController) }
+                    }
                 }
             }
         }
