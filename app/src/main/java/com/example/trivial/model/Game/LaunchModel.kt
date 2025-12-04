@@ -1,7 +1,5 @@
-package com.example.trivial.model
-
-import android.media.Image
+package com.example.trivial.model.Game
 
 data class LaunchModel(
-    val imagen: Image
+    
 )
