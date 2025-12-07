@@ -1,6 +1,9 @@
 package com.example.trivial.viewmodel
 
 import android.R
+import androidx.compose.material3.ListItemColors
+import androidx.compose.runtime.currentComposer
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -69,7 +72,8 @@ class TrivialViewModel: ViewModel() {
     fun resetearRonda() {
         val currentGame = _valorGame.value
         _valorGame.value = currentGame.copy(
-            ronda = 1
+            ronda = 1,
+            puntuacion = 0
         )
     }
     fun cambiarDificultad(dif: Int): String {
@@ -85,24 +89,24 @@ class TrivialViewModel: ViewModel() {
         return ""
     }
 
-    fun determinarRespuesta(opcion: Int): Boolean {
+    fun determinarRespuesta(opcion: Int) {
         val currentGame = _valorGame.value
-
         if (currentGame.pregunta.indiceCorrecta == opcion) {
             _valorGame.value = currentGame.copy(
                 puntuacion = currentGame.puntuacion + 10
             )
-            return true
-        } else {
-            _valorGame.value = currentGame.copy(
-                puntuacion = currentGame.puntuacion - 3
-            )
-            if (_valorGame.value.puntuacion < 0) {
-                _valorGame.value = currentGame.copy(
-                    puntuacion = 0
-                )
-            }
-            return false
         }
+    }
+
+    fun cambiarColores(colores: MutableList<Color>): MutableList<Color> {
+        val currentGame = _valorGame.value
+        for (i in 0..<colores.size) {
+            if (i == currentGame.pregunta.indiceCorrecta) {
+                colores[i] = Color(0xFF00FF00)
+            } else {
+                colores[i] = Color(0xFFFF0000)
+            }
+        }
+        return colores
     }
 }
