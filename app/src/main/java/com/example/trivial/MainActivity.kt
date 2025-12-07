@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
                         navController = navController,
-                        startDestination = Routes.Launch.route
+                        startDestination = Routes.Menu.route
                     ) {
                         composable(Routes.Launch.route) { LaunchView(modifier = Modifier.padding(innerPadding), trivialViewModel, navController) }
                         composable(Routes.Menu.route) { MenuView(modifier = Modifier.padding(innerPadding), trivialViewModel, navController) }

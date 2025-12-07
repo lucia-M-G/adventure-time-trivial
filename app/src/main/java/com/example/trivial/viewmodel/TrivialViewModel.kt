@@ -45,7 +45,7 @@ class TrivialViewModel: ViewModel() {
     )
     private val _valorLaunch = MutableLiveData(Launch(3))
     private val _valorMenu = MutableLiveData(Menu(1))
-    private var _valorGame = MutableLiveData(Game(1, preguntas[0], false, 0))
+    private var _valorGame = MutableLiveData(Game(1, preguntas[0], false, 0, 0))
     private val _valorResult = MutableLiveData(Result(0))
 
     val valorLaunch: LiveData<Launch> = _valorLaunch
@@ -56,7 +56,7 @@ class TrivialViewModel: ViewModel() {
     fun generarPregunta() {
         val currentGame = _valorGame.value
         var currentMenu = _valorMenu.value
-        currentGame.pregunta = preguntas.filter { it.difucltad == currentMenu.dificultad } [currentGame.ronda-1]
+        currentGame.pregunta = preguntas.filter { it.dificultad == currentMenu.dificultad } [currentGame.ronda-1]
     }
     fun incrementarRonda() {
         val currentGame = _valorGame.value
@@ -83,5 +83,26 @@ class TrivialViewModel: ViewModel() {
             3 -> return "Dificil"
         }
         return ""
+    }
+
+    fun determinarRespuesta(opcion: Int): Boolean {
+        val currentGame = _valorGame.value
+
+        if (currentGame.pregunta.indiceCorrecta == opcion) {
+            _valorGame.value = currentGame.copy(
+                puntuacion = currentGame.puntuacion + 10
+            )
+            return true
+        } else {
+            _valorGame.value = currentGame.copy(
+                puntuacion = currentGame.puntuacion - 3
+            )
+            if (_valorGame.value.puntuacion < 0) {
+                _valorGame.value = currentGame.copy(
+                    puntuacion = 0
+                )
+            }
+            return false
+        }
     }
 }
