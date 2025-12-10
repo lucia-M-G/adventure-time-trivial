@@ -79,17 +79,11 @@ class TrivialViewModel: ViewModel() {
             puntuacion = 0
         )
     }
-    fun cambiarDificultad(dif: Int): String {
+    fun cambiarDificultad(dif: Int) {
         val currentMenu = _valorMenu.value
         _valorMenu.value = currentMenu.copy(
             dificultad = dif
         )
-        when(dif) {
-            1 -> return "Facil"
-            2 -> return "Normal"
-            3 -> return "Dificil"
-        }
-        return ""
     }
 
     fun determinarRespuesta(opcion: Int) {
