@@ -26,13 +26,21 @@ En el módulo de Desarollo de Interficies hemos desarollado un Trivial con temá
 
 ## 🐻‍❄️ Capturas de Pantalla
 
-| Splash Screen | Menú Principal |
-|---------------|----------------|
-| <img src="screenshots/1_splash.png" width="200"> | <img src="screenshots/2_menu.png" width="200"> |
+| Splash Screen |
+|---------------|
+| ![alt text](launch.png) |
 
-| Juego | Resultados |
-|-------------------|------------|
-| <img src="screenshots/4_game_answer.png" width="200"> | <img src="screenshots/5_results.png" width="200"> |
+| Menú Principal |
+|----------------|
+| ![alt text](menu_normal.png) ![alt text](menu_dificil.png) ![alt text](menu_facil.png) |
+
+| Juego |
+|-------|
+| ![alt text](game_espera.png) ![alt text](game_finaliza.png) |
+
+| Resultados |
+|------------|
+| ![alt text](resultado.png) |
 
 ## 🩸 Estructura del Proyecto
 
