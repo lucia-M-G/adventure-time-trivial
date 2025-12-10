@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -20,12 +19,15 @@ import com.example.trivial.view.MenuView
 import com.example.trivial.view.ResultView
 import com.example.trivial.view.Routes
 import com.example.trivial.viewmodel.TrivialViewModel
+import androidx.core.view.WindowCompat
+import android.view.View
 
 class MainActivity : ComponentActivity() {
     val trivialViewModel: TrivialViewModel by viewModels<TrivialViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        hideSystemUI()
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
@@ -43,5 +45,15 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    private fun hideSystemUI() {
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                )
+        WindowCompat.setDecorFitsSystemWindows(window, false)
     }
 }
