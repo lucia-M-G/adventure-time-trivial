@@ -15,16 +15,18 @@ import com.example.trivial.model.Result
 
 class TrivialViewModel: ViewModel() {
     var preguntas = listOf(
-        Pregunta("facil1", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil2", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil3", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil4", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil5", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil6", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil7", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil8", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil9", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
-        Pregunta("facil10", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 1),
+        // Dificulatd fácil
+        Pregunta("¿Cómo se llama el mejor amigo y hermano adoptivo de Finn?", listOf("BMO", "Marceline", "Jake", "Gunter"), 2, 1),
+        Pregunta("¿Qué objeto utiliza Finn como arma principal?", listOf("Un martillo", "Una espada", "Un palo mágico", "Un arco"), 1, 1),
+        Pregunta("¿Cuál es el nombre del reino gobernado por la Princesa Chicle?", listOf("Reino de Hielo", "Chuchelandia", "Reino de Fuego", "Espacio Bultos"), 1, 1),
+        Pregunta("¿Qué es BMO?", listOf("Una consola", "Un humano", "Un pero mágico", "Un vampiro"), 0, 1),
+        Pregunta("¿Quién es el villano conocido por secuestrar princesas?", listOf("Orgalorg", "El Rey Hielo", "Ricardio", "Ash"), 1, 1),
+        Pregunta("¿De qué color es principalmente Jake?", listOf("Amarillo", "Verde", "Azul", "Naranja"), 0, 1),
+        Pregunta("¿Cómo se llama la princesa hecha de fuego?", listOf("Princesa Fantasma", "Princesa Mora", "Princesa Llama", "Princesa Salchicha"), 2, 1),
+        Pregunta("¿Qué instrumento toca Marceline?", listOf("El violín", "La guitarra acústica", "El bajo", "El piano"), 2, 1),
+        Pregunta("¿Qué es Finn?", listOf("Un perro", "Un mago", "Un ogro", "Un humano"), 3, 1),
+        Pregunta("¿Quién gobierna el Reino de Hielo?", listOf("El Rey Hielo", "Billy", "Hunson Abadeer", "El Conde Limoncio"), 0, 1),
+        // Dificultad normal
         Pregunta("normal1", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 2),
         Pregunta("normal2", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 2),
         Pregunta("normal3", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 2),
@@ -35,6 +37,7 @@ class TrivialViewModel: ViewModel() {
         Pregunta("normal8", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 2),
         Pregunta("normal9", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 2),
         Pregunta("normal10", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 2),
+        // Dificultad difícil
         Pregunta("dificil1", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
         Pregunta("dificil2", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
         Pregunta("dificil3", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
