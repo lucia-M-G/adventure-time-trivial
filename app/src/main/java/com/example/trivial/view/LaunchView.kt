@@ -40,9 +40,9 @@ fun LaunchView(
             color = Color(0xFF1A237E)
         ) {
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxSize().padding(top = 150.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Center,
             ) {
                 Image(
                     painter = painterResource(id = com.example.trivial.R.drawable.logo_trivial),

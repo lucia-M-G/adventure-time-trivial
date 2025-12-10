@@ -21,11 +21,12 @@ fun GameView(
     trivialViewModel: TrivialViewModel,
     navController: NavController
 ) {
+    val colorFondo = Color(0xFF1A237E)
     var colores = remember { mutableListOf(
-        Color(0xFF9000FF),
-        Color(0xFF9000FF),
-        Color(0xFF9000FF),
-        Color(0xFF9000FF)
+        Color(0xFFFF9800),
+        Color(0xFFFF9800),
+        Color(0xFFFF9800),
+        Color(0xFFFF9800)
     )}
 
     val estado by trivialViewModel.valorGame.observeAsState()
@@ -44,6 +45,7 @@ fun GameView(
             tiempoActivo = false
             // Se acaba el tiempo = mostrar respuesta
             yaRespondio = true
+            trivialViewModel.cambiarColores(colores)
         }
     }
 
@@ -53,130 +55,134 @@ fun GameView(
     val respuestas = pregunta?.respuestas ?: listOf("", "", "", "")
     val correcta = pregunta?.indiceCorrecta ?: -1
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+    Surface(
+        color = colorFondo
     ) {
-        // Ronda + Tiempo
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp, 50.dp, 16.dp, 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(
-                text = "Ronda $ronda/10",
-                fontSize = 22.sp
-            )
-
-            // Temporizador
-            Box(contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(
-                    progress = { tiempoRestante / 30f },
-                    modifier = Modifier.size(50.dp),
-                    strokeWidth = 4.dp,
-                    color = if (tiempoRestante < 10) Color.Red else Color.Gray
-                )
+            // Ronda + Tiempo
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
-                    text = "$tiempoRestante",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+                    text = "Ronda $ronda/10",
+                    fontSize = 22.sp
+                )
+
+                // Temporizador
+                Box(contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(
+                        progress = { tiempoRestante / 30f },
+                        modifier = Modifier.size(50.dp),
+                        strokeWidth = 4.dp,
+                        color = if (tiempoRestante < 10) Color.Red else Color.Gray
+                    )
+                    Text(
+                        text = "$tiempoRestante",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Tarjeta para las preguntas
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFE3F2FD))
+            ) {
+                Text(
+                    text = texto,
+                    modifier = Modifier.padding(16.dp),
+                    fontSize = 18.sp,
+                    lineHeight = 24.sp,
+                    color = Color.Black
                 )
             }
-        }
 
-        Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
-        // Tarjeta para las preguntas
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFE3F2FD))
-        ) {
-            Text(
-                text = texto,
-                modifier = Modifier.padding(16.dp),
-                fontSize = 18.sp,
-                lineHeight = 24.sp,
-                color = Color.Black
-            )
-        }
+            // 4 Botones, pero los he puesto en columna
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                respuestas.forEachIndexed { i, respuesta ->
+                    // Colores no funcionan
+                    val color = if (yaRespondio || tiempoRestante == 0) {
+                        if (i == correcta) Color.Green else Color.Red.copy(alpha = 0.7f)
+                    } else {
+                        Color.Unspecified
+                    }
 
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // 4 Botones, pero los he puesto en columna
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            respuestas.forEachIndexed { i, respuesta ->
-                // Colores no funcionan
-                val color = if (yaRespondio || tiempoRestante == 0) {
-                    if (i == correcta) Color.Green else Color.Red.copy(alpha = 0.7f)
-                } else {
-                    Color.Unspecified
+                    Button(
+                        onClick = {
+                            if (!yaRespondio && tiempoActivo) {
+                                // Sumar puntos
+                                trivialViewModel.determinarRespuesta(i)
+                                trivialViewModel.cambiarColores(colores)
+                                tiempoActivo = false
+                                yaRespondio = true
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colores[i]
+                        )
+                    ) {
+                        Text(
+                            text = respuesta,
+                            fontSize = 16.sp,
+                            modifier = Modifier.padding(vertical = 8.dp)
+                        )
+                    }
                 }
+            }
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            // Botón siguiente que aparece si hay respuesta o no queda tiempo
+            if (yaRespondio || tiempoRestante == 0) {
+                val esUltima = ronda >= 10
 
                 Button(
                     onClick = {
-                        if (!yaRespondio && tiempoActivo) {
-                            // Sumar puntos
-                            trivialViewModel.determinarRespuesta(i)
-                            trivialViewModel.cambiarColores(colores)
-                            tiempoActivo = false
-                            yaRespondio = true
+                        colores[0] = Color(0xFFFF9800)
+                        colores[1] = Color(0xFFFF9800)
+                        colores[2] = Color(0xFFFF9800)
+                        colores[3] = Color(0xFFFF9800)
+                        if (esUltima) {
+                            trivialViewModel.actualizarPuntuacionFinal()
+                            navController.navigate(Routes.Result.route)
+                        } else {
+                            // Avanzar
+                            trivialViewModel.incrementarRonda()
+                            trivialViewModel.generarPregunta()
+                            // Reiniciar estados
+                            tiempoRestante = 30
+                            tiempoActivo = true
+                            yaRespondio = false
                         }
                     },
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(55.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = colores[i]
+                        containerColor = Color(0xFFFF9800)
                     )
                 ) {
                     Text(
-                        text = respuesta,
-                        fontSize = 16.sp,
-                        modifier = Modifier.padding(vertical = 8.dp)
+                        text = if (esUltima) "VER RESULTADOS" else "SIGUIENTE PREGUNTA",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold
                     )
                 }
-            }
-        }
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        // Botón siguiente que aparece si hay respuesta o no queda tiempo
-        if (yaRespondio || tiempoRestante == 0) {
-            val esUltima = ronda >= 10
-
-            Button(
-                onClick = {
-                    colores[0] = Color(0xFF9000FF)
-                    colores[1] = Color(0xFF9000FF)
-                    colores[2] = Color(0xFF9000FF)
-                    colores[3] = Color(0xFF9000FF)
-                    if (esUltima) {
-                        trivialViewModel.actualizarPuntuacionFinal()
-                        navController.navigate(Routes.Result.route)
-                    } else {
-                        // Avanzar
-                        trivialViewModel.incrementarRonda()
-                        trivialViewModel.generarPregunta()
-                        // Reiniciar estados
-                        tiempoRestante = 30
-                        tiempoActivo = true
-                        yaRespondio = false
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(55.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFFF9800)
-                )
-            ) {
-                Text(
-                    text = if (esUltima) "VER RESULTADOS" else "SIGUIENTE PREGUNTA",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
             }
         }
     }
