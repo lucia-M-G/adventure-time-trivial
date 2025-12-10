@@ -3,6 +3,7 @@ package com.example.trivial.view
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,7 +20,7 @@ fun MenuView(
     navController: NavController
 ) {
     // 1=Fácil, 2=Normal, 3=Difícil
-    var dificultadSeleccionada by remember { mutableIntStateOf(1) }
+    var dificultadSeleccionada by rememberSaveable { mutableIntStateOf(1) }
 
     // Recordar cambiar colores, estos son muy feos
     val colorFacil = Color(0xFF4CAF50)
