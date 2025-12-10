@@ -44,7 +44,6 @@ fun ResultView(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(30.dp)
         ) {
             Text(
@@ -88,9 +87,10 @@ fun ResultView(
                     )
 
                     Divider(
-                        modifier = Modifier.fillMaxWidth(0.6f),
-                        color = Color.White.copy(alpha = 0.2f),
-                        thickness = 1.dp
+                        modifier = Modifier
+                            .fillMaxWidth(0.6f)
+                            .height(1.dp),
+                        color = Color.White.copy(alpha = 0.2f)
                     )
 
                     Text(
@@ -103,7 +103,7 @@ fun ResultView(
                 }
             }
 
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(40.dp))
 
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -129,29 +129,6 @@ fun ResultView(
                         text = "JUGAR DE NUEVO",
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
-                    )
-                }
-
-                // Volver al menú
-                OutlinedButton(
-                    onClick = {
-                        navController.navigate(Routes.Menu.route)
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp),
-                    shape = MaterialTheme.shapes.medium,
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = Color.White
-                    ),
-                    border = BorderStroke(
-                        width = 1.dp,
-                        color = Color.White.copy(alpha = 0.5f)
-                    )
-                ) {
-                    Text(
-                        text = "VOLVER AL MENÚ",
-                        fontSize = 16.sp
                     )
                 }
             }
