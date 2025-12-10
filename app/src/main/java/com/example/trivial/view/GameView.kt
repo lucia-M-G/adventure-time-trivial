@@ -21,6 +21,13 @@ fun GameView(
     trivialViewModel: TrivialViewModel,
     navController: NavController
 ) {
+    var colores = remember { mutableListOf(
+        Color(0xFF9000FF),
+        Color(0xFF9000FF),
+        Color(0xFF9000FF),
+        Color(0xFF9000FF)
+    )}
+
     val estado by trivialViewModel.valorGame.observeAsState()
 
     var tiempoRestante by remember { mutableIntStateOf(30) }
@@ -89,7 +96,8 @@ fun GameView(
                 text = texto,
                 modifier = Modifier.padding(16.dp),
                 fontSize = 18.sp,
-                lineHeight = 24.sp
+                lineHeight = 24.sp,
+                color = Color.Black
             )
         }
 
@@ -113,18 +121,14 @@ fun GameView(
                         if (!yaRespondio && tiempoActivo) {
                             // Sumar puntos
                             trivialViewModel.determinarRespuesta(i)
+                            trivialViewModel.cambiarColores(colores)
                             tiempoActivo = false
                             yaRespondio = true
                         }
                     },
                     modifier = Modifier.fillMaxWidth(),
-                    enabled = !yaRespondio && tiempoActivo,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = if (color == Color.Unspecified) {
-                            ButtonDefaults.buttonColors().containerColor
-                        } else {
-                            color
-                        }
+                        containerColor = colores[i]
                     )
                 ) {
                     Text(
@@ -144,6 +148,10 @@ fun GameView(
 
             Button(
                 onClick = {
+                    colores[0] = Color(0xFF9000FF)
+                    colores[1] = Color(0xFF9000FF)
+                    colores[2] = Color(0xFF9000FF)
+                    colores[3] = Color(0xFF9000FF)
                     if (esUltima) {
                         trivialViewModel.actualizarPuntuacionFinal()
                         navController.navigate(Routes.Result.route)
