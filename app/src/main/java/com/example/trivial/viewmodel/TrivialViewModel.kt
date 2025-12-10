@@ -38,20 +38,20 @@ class TrivialViewModel: ViewModel() {
         Pregunta("¿Cuál es el nombre del padre de Marceline?", listOf("Hudson Abadeer", "Hunson Abadeer", "Hans Abardeer", "Huston Abadeir"), 1, 2),
         Pregunta("¿Con qué personaje mantiene Finn una relación sentimental importante en la serie?", listOf("Princesa Llama", "Marceline", "Princesa Hielo", "Princesa Tortuga"), 0, 2),
         // Dificultad difícil
-        Pregunta("dificil1", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil2", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil3", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil4", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil5", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil6", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil7", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil8", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil9", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
-        Pregunta("dificil10", listOf("respuesta1", "respuesta2", "respuesta3", "respuesta4"), 0, 3),
+        Pregunta("¿Cómo se llama el episodio en el que se muestra el pasado de Simon y Marcy?", listOf("Betty", "Islas", "Simon y Marcy", "Te Recuerdo"), 2, 3),
+        Pregunta("¿Qué objeto provoca que la Espada Dorada se destruya y evolucione en otra?", listOf("La corona del Rey Hielo", "El guante de Billy", "La explosión de un portal", "Una gema maldita"), 3, 3),
+        Pregunta("¿Qué es Orgalorg en realidad?", listOf("Un destructor interestelar", "Un antiguo mago", "Un demonio de fuego", "Un elemental del hielo"), 0, 3),
+        Pregunta("¿Cómo se llama el “hermano” de Limoncio?", listOf("Limoncio Junior", "Limoncio 2", "Limoncín", "Lemonjon"), 0, 3),
+        Pregunta("¿Quiénes son los creadores originales del mundo de Ooo?", listOf("Los magos antiguos", "Los humanos", "Los Elementales", "Los guardianes del tiempo"), 2, 3),
+        Pregunta("¿Qué rasgo especial se revela sobre el linaje de Finn en la miniserie 'Islas'?", listOf("Que no envejecen", "Que tienen afinidad mágica", "Que pueden respirar bajo el agua", "Que son exploradores por naturaleza"), 3, 3),
+        Pregunta("¿Cómo se llama la espada poseída por un espíritu demoníaco?", listOf("La Espada Demonio", "La Espada de Hierro Negro", "La Espada Estigia", "La Espada Abismo"), 0, 3),
+        Pregunta("¿En qué episodio se muestra parte del mundo antes del apocalipsis que creó Ooo?", listOf("Evergreen", "La Bóveda", "Everything Stays", "Reacción Mortal"), 2, 3),
+        Pregunta("¿Qué intenta hacer Betty con respecto a la corona del Rey Hielo?", listOf("Destruirla completamente", "Revertir su magia para salvar a Simon", "Usarla para viajar en el tiempo", "Tomar su poder para ella"), 1, 3),
+        Pregunta("¿Cuál es el nombre del ser cósmico que aparece en el final de la serie?", listOf("Maja", "El Lich", "Cthulion", "GOLB"), 3, 3),
     )
     private val _valorLaunch = MutableLiveData(Launch(3))
     private val _valorMenu = MutableLiveData(Menu(1))
-    private var _valorGame = MutableLiveData(Game(1, preguntas[0], false, 0, 0))
+    private var _valorGame = MutableLiveData(Game(1, preguntas[0], false, 0))
     private val _valorResult = MutableLiveData(Result(0))
 
     val valorLaunch: LiveData<Launch> = _valorLaunch
