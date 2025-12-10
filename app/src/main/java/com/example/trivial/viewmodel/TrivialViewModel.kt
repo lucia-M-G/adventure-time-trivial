@@ -112,4 +112,9 @@ class TrivialViewModel: ViewModel() {
         }
         return colores
     }
+
+    fun actualizarPuntuacionFinal() {
+        val currentGame = _valorGame.value
+        _valorResult.value = Result(currentGame?.puntuacion ?: 0)
+    }
 }

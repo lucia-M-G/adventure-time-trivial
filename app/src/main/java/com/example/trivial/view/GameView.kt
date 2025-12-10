@@ -145,6 +145,7 @@ fun GameView(
             Button(
                 onClick = {
                     if (esUltima) {
+                        trivialViewModel.actualizarPuntuacionFinal()
                         navController.navigate(Routes.Result.route)
                     } else {
                         // Avanzar
