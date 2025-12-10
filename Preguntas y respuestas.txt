@@ -4,7 +4,7 @@
 BMO
 Marceline
 Jake*
-Gunther
+Gunter
 
 ¿Qué objeto utiliza Finn como arma principal?
 Un martillo
@@ -14,18 +14,18 @@ Un arco
 
 ¿Cuál es el nombre del reino gobernado por la Princesa Chicle?
 Reino de Hielo
-Reino de Chuchelandia*
+Chuchelandia*
 Reino de Fuego
-Reino Limo
+Espacio bultos
 
 ¿Qué es BMO?
-Una consola/robot*
+Una consola*
 Un humano
 Un perro mágico
 Un vampiro
 
 ¿Quién es el villano conocido por secuestrar princesas?
-Don Polvorón
+Orgalorg
 El Rey Hielo*
 Ricardio
 Ash
@@ -37,10 +37,10 @@ Azul
 Naranja
 
 ¿Cómo se llama la princesa hecha de fuego?
-Princesa Bruja
+Princesa Fantasma
 Princesa Mora
 Princesa Llama*
-Princesa Masa
+Princesa Salchicha
 
 ¿Qué instrumento toca Marceline?
 El violín
@@ -49,16 +49,16 @@ El bajo*
 El piano
 
 ¿Qué es Finn?
-Perro
-Mago
-Ogro
-Humano*
+Un perro
+Un mago
+Un ogro
+Un humano*
 
 ¿Quién gobierna el Reino de Hielo?
-Simon Petrikov / Rey Hielo*
+El Rey Hielo*
 Billy
 Hunson Abadeer
-Lemongrab
+El Conde Limoncio
 
 ----- NORMAL -----
 
@@ -76,27 +76,27 @@ Belinda
 
 ¿Qué relación tiene Marceline con Hunson Abadeer?
 Es su hija*
-Su aprendiz
-Su enemiga
-Su hermana
+Es su aprendiz
+Es su enemiga
+Es su hermana
 
 ¿Qué elemento representa la Princesa Chicle?
 Hielo
 Fuego
 Limo
-Dulzura*
+Dulce*
 
 ¿Cómo se llama la espada roja usada por Finn?
 La Espada de Hierro
 La Espada Demonio
 La Espada Nube
-La Espada Carmesí (Scarlet)*
+La Espada Carmesí*
 
-¿Cuál es la comida favorita de Jake?
+¿Cuál es la comida favorita de Finn?
 La pizza
 El helado
-Los burritos*
-El pastel de carne
+El pastel de carne*
+Los burritos
 
 ¿Cómo se llama el científico al que suele recurrir la Princesa Chicle?
 Ricardio
@@ -104,11 +104,11 @@ Magic Man
 Mayordomo Menta
 El Conde de Chicle*
 
-¿Qué tipo de criatura es la Princesa Grumosa?
-Una nube grumosa*
+¿Qué tipo de criatura es la Princesa del Espacio Bultos?
+Una persona de bultos*
 Un fantasma
 Una gelatina
-Una nube de algodón
+Una nube
 
 ¿Cuál es el nombre del padre de Marceline?
 Hudson Abadeer
@@ -117,7 +117,7 @@ Hans Abardeer
 Huston Abadeir
 
 ¿Con qué personaje mantiene Finn una relación sentimental importante en la serie?
-Princesa Flama*
+Princesa Llama*
 Marceline
 Princesa Hielo
 Princesa Tortuga
@@ -127,7 +127,7 @@ Princesa Tortuga
 ¿Cómo se llama el episodio en el que se muestra el pasado de Simon y Marcy?
 “Betty”
 “Islas”
-“Simon & Marcy”*
+“Simon y Marcy”*
 “Te Recuerdo”
 
 ¿Qué objeto provoca que la Espada Dorada se destruya y evolucione en otra?
@@ -142,10 +142,10 @@ Un antiguo mago
 Un demonio de fuego
 Un elemental del hielo
 
-¿Cómo se llama el “hermano” de Lemongrab?
-Lemongrab Jr.
-Lemongrab 2*
-Lemonhope
+¿Cómo se llama el “hermano” de Limoncio?
+Limoncio Junior
+Limoncio 2*
+Limoncín
 Lemonjon
 
 ¿Quiénes son los creadores originales del mundo de Ooo?
@@ -161,7 +161,7 @@ Que pueden respirar bajo el agua
 Que son exploradores por naturaleza*
 
 ¿Cómo se llama la espada poseída por un espíritu demoníaco?
-La Espada Demonio (Nightmare)*
+La Espada Demonio*
 La Espada de Hierro Negro
 La Espada Estigia
 La Espada Abismo
